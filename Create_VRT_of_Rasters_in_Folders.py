@@ -16,7 +16,7 @@ inDir = r""
 # output VRT file
 outVrt = r""
 
-# input rastervformat
+# input raster format
 inImgFormat = "tif"  # "tif" or "img"
 #######################################################################################################################
 
