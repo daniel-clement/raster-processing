@@ -7,6 +7,7 @@ This script will mosaic all the rasters in the input directory.
 # do imports
 import os
 from glob import glob
+import gdal
 
 # set parameters
 #################################################################################################
