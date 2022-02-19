@@ -1,14 +1,21 @@
 # this script was written by Daniel Clement -2022
+# Python 3.7
+"""
+This script will mosaic all the rasters in the input directory.
+"""
 
 # do imports
 import os
 from glob import glob
 
-#######################################################################################################################
 # set parameters
-inDir = r"O:\Analytics\Mexico\PRC_Yucatan_2022\Working\Dan\Imagery\DosBocas_GE1_7_11_2021"
+#################################################################################################
+# the folder containing the rasters you want to mosaic together
+inDir = r""
+
+# the raster file format of the input images
 inFormat = ".tif"
-#######################################################################################################################
+#################################################################################################
 
 # make list of all rasters in the input folder which dont include the word "BROWSE" in the name
 inImgs = [i for i in glob(inDir + "/*{}".format(inFormat)) if not 'BROWSE' in i]
