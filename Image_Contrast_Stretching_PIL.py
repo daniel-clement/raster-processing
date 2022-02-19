@@ -1,7 +1,7 @@
 # this script was written by Daniel Clement
 # Python-3
 """
-this script will adjust the input images (JPEG) contrast and brightness
+this script will adjust the input images (JPEG) contrast and brightness using the PIL- Image Enhance module
 """
 
 # do imports
