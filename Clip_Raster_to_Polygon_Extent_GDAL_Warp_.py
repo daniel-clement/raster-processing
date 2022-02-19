@@ -41,6 +41,9 @@ executionTimeSec = (time.time() - startTime)
 
 
 def print_execution_time(executionTimeSec):
+    """
+    This function calculates and prints the time it took the script processing to complete
+    """
     if executionTimeSec < 60:
         execTimeSecRound = round(executionTimeSec, 2)
         print("Process completed in {} second(s)".format(execTimeSecRound))
