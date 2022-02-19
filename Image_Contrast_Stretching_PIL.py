@@ -57,9 +57,11 @@ for i in tqdm(inImgs):
     # write image to disk
     manSharpImg.save(outImg, "JPEG")
 
+# get number of images processed and output
 outImgs = glob(outDir + "/*.jpg")
 numOutImgs = len(outImgs)
 
+# soft error handling to make sure all input images were processed
 if numImgs == numOutImgs:
     print("All images processed successfully!!!")
 else:
