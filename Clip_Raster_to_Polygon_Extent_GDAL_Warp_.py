@@ -11,13 +11,13 @@ import time
 # set parameters
 ########################################################################################################################
 # the raster you want to clip
-in_raster = r""
+in_raster = r"C:\data\example.tif"
 
-# the polygon feature you want to clip the raster to
-clip_feature = r""
+# the polygon feature you want to clip the raster to - ShapeFile or Feature Class
+clip_feature = r"C:\data\aoi_boundary.shp"
 
 # the output clipped raster
-out_raster = r""
+out_raster = r"C:\data\example_clipped.tif"
 ########################################################################################################################
 
 # Start time measurement
@@ -25,7 +25,12 @@ startTime = time.time()
 
 
 def clip_raster(clip_feature, in_raster, out_raster):
+    """
+    This function will create and execute a GDAL Warp command with the given inputs
+    """
+    
     print("Clipping raster...")
+    
     # creates the gdal warp command
     command = "gdalwarp -dstnodata NoData -cutline {} {} {}".format(clip_feature, in_raster, out_raster)
 
@@ -33,7 +38,7 @@ def clip_raster(clip_feature, in_raster, out_raster):
     os.system(command)
 
 
-# run the clip raster function
+# run the clip_raster function
 clip_raster(clip_feature, in_raster, out_raster)
 
 # stop the timer and calculate run time
