@@ -11,12 +11,12 @@ import gdal
 
 #######################################################################################################################
 # folder with the raster files
-inDir = r""
+inDir = r"C:\data\images"
 
 # output VRT file
-outVrt = r""
+outVrt = r"C:\data\images\example.vrt"
 
-# input raster format
+# input raster format - acceptable formats can be found at the following link: https://gdal.org/drivers/raster/index.html
 inImgFormat = "tif"  # "tif" or "img"
 #######################################################################################################################
 
