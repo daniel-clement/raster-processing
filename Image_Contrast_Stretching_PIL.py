@@ -14,10 +14,14 @@ from tqdm import tqdm
 # Input Parameters
 #######################################################################################################################
 # the folder with the images you want to process
-inDir = r""
+inDir = r"C:\data\images"
 
 # the folder where you want your processed images to be saved to
-outDir = r""
+outDir = r"C:\data\images_stretched"
+
+# this is the format of the input images
+# acceptable formats can be found here: https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
+inImgFormat = "jpg"
 
 # A contrast enhancement factor of 0.0 gives a solid grey image. A factor of 1.0 gives the original image.
 contrast_Factor = 2
