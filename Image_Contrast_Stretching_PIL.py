@@ -14,10 +14,10 @@ from tqdm import tqdm
 # Input Parameters
 #######################################################################################################################
 # the folder with the images you want to process
-inDir = r"D:\Medium_Blog\Image_original"
+inDir = r"c:\data\original_images"
 
 # the folder where you want your processed images to be saved to
-outDir = r"D:\Medium_Blog\image_adjusted"
+outDir = r"c:\data\adjusted_images"
 
 # A contrast enhancement factor of 0.0 gives a solid grey image. A factor of 1.0 gives the original image.
 contrast_Factor = 1.5
