@@ -12,7 +12,7 @@ from PIL import Image
 from tqdm import tqdm
 
 # Input Parameters
-#######################################################################################################################
+##########################################################################################
 # the folder with the images you want to process
 inDir = r"c:\data\original_images"
 
@@ -36,7 +36,7 @@ input_format = "jpg"  # "jpg" or "tif" or "png"
 
 # the file format you want the output images to be
 output_format = "tif"  # "jpg" or "tif" or "png"
-#######################################################################################################################
+##########################################################################################
 
 
 def adjustment_process(input_image, contrast_factor, brightness_factor, sharpness_factor, out_dir):
