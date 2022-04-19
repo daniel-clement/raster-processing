@@ -14,7 +14,7 @@ import time
 in_raster = r"C:\data\example.tif"
 
 # the polygon feature you want to clip the raster to - ShapeFile or Feature Class
-clip_feature = r"C:\data\aoi_boundary.shp"
+clip_feature = r"C:\data\aoi_polygon.shp"
 
 # the output clipped raster
 out_raster = r"C:\data\example_clipped.tif"
@@ -32,7 +32,7 @@ def clip_raster(clip_feature, in_raster, out_raster):
     print("Clipping raster...")
     
     # creates the gdal warp command
-    command = "gdalwarp -dstnodata NoData -cutline {} {} {}".format(clip_feature, in_raster, out_raster)
+    command = f"gdalwarp -dstnodata NoData -cutline {clip_feature} {in_raster} {out_raster}"
 
     # runs the command
     os.system(command)
@@ -68,5 +68,5 @@ def print_execution_time(executionTimeSec):
 print("\n##################################################################################################")
 print("Raster successfully clipped!")
 print_execution_time(executionTimeSec)
-print("Please find your result at: {}".format(out_raster))
+print(f"Please find your result at: {out_raster}")
 print("##################################################################################################")
