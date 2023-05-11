@@ -6,38 +6,43 @@ this script will make a VRT from all of the rasters inside of a folder, even if 
 
 # do imports
 import os
-import glob2 as glob
-import gdal
+from pathlib import Path
 
 #######################################################################################################################
 # folder with the raster files
-inDir = r"C:\data\images"
+in_dir = r"C:\data\images"
 
 # output VRT file
-outVrt = r"C:\data\images\example.vrt"
+out_vrt = r"C:\data\images\example.vrt"
 
-# input raster format - acceptable formats can be found at the following link: https://gdal.org/drivers/raster/index.html
-inImgFormat = "tif"  # "tif" or "img"
+# input raster format - acceptable formats can be found here: https://gdal.org/drivers/raster/index.html
+in_format = "tif"  # "tif" or "img"
 #######################################################################################################################
 
 
 # get path of all tifs in the sub-folders of the inDir
-rasterList = glob.glob(r"{}\**\*.{}".format(inDir, inImgFormat))
+raster_list = [str(raster) for raster in Path(in_dir).rglob(f"*/*.{in_format.lower()}")]
 
-print("\nFound {} rasters...".format(len(tifList)))
+print(f"\nFound {len(raster_list)} rasters...")
 
 # create txt file with list of tifs in input folder
-outTxt = os.path.join(inDir, "ImageList.txt")
-with open(outTxt, 'w') as f:
-    for raster in rasterList:
+out_txt = os.path.join(in_dir, "ImageList.txt")
+with open(out_txt, 'w') as f:
+    for raster in raster_list:
         f.write("{}\n".format(raster))
 
 # create a vrt from the tifs in the outTxt file
 print("\nCreating VRT...")
+
 # create the command for the gdal build vrt process
-command = 'gdalbuildvrt "{}" -input_file_list {}'.format(outVrt, outTxt)
+command = f'gdalbuildvrt "{out_vrt}" -input_file_list {out_txt}'
 
 # run the gdal build vrt command
 os.system(command)
 
-print("\nVRT Created Successfully!")
+# check to ensure the vrt was actually created
+if not os.path.isfile(out_vrt):
+    print("\nVRT Creation Unsuccessful :(")
+
+else:
+    print("VRT Created Successfully!")
