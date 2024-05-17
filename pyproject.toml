@@ -1,0 +1,10 @@
+[project]
+name = "raster-processing"
+description = "Raster processing scripts"
+version = "0.1.0"
+authors = ["Daniel Clement"]
+
+[project]
+requires-python = ">= 3.9"
+pillow = "9.2.0"
+tqdm = "4.63.0"
